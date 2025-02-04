@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.52">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>19330</IntrospectionStateNumber>
+      <IntrospectionStateNumber>19369</IntrospectionStateNumber>
       <ServerVersion>15.10</ServerVersion>
       <StartupTime>1738602692</StartupTime>
       <TimeZones>true ACDT
@@ -815,7 +815,7 @@ false Zulu
 13471||10|C|G
 13471||-9223372036854775808|U|G
 13471||10|U|G</Grants>
-      <IntrospectionStateNumber>19330</IntrospectionStateNumber>
+      <IntrospectionStateNumber>19369</IntrospectionStateNumber>
       <ObjectId>55599</ObjectId>
       <OwnerName>postiki</OwnerName>
     </database>
@@ -4260,8 +4260,8 @@ false Zulu
     <schema id="269" parent="6" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>19330</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-02-03.17:44:43</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>19369</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-02-04.13:59:57</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>517</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -7624,63 +7624,107 @@ false Zulu
       <OwnerName>pg_database_owner</OwnerName>
     </schema>
     <table id="514" parent="269" name="users">
-      <ObjectId>55608</ObjectId>
-      <StateNumber>19329</StateNumber>
+      <ObjectId>55659</ObjectId>
+      <StateNumber>19368</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postiki</OwnerName>
     </table>
-    <column id="515" parent="514" name="telegramid">
-      <DasType>bigint|0s</DasType>
+    <column id="515" parent="514" name="telegram_id">
+      <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>19329</StateNumber>
-      <TypeId>20</TypeId>
+      <StateNumber>19368</StateNumber>
+      <TypeId>25</TypeId>
     </column>
     <column id="516" parent="514" name="username">
-      <DasType>varchar(255)|0s</DasType>
+      <DasType>text|0s</DasType>
+      <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>19329</StateNumber>
-      <TypeId>1043</TypeId>
+      <StateNumber>19368</StateNumber>
+      <TypeId>25</TypeId>
     </column>
-    <column id="517" parent="514" name="registrationdate">
-      <DasType>timestamp|0s</DasType>
+    <column id="517" parent="514" name="registration_date">
+      <DasType>timestamp with time zone|0s</DasType>
+      <DefaultExpression>now()</DefaultExpression>
+      <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>19329</StateNumber>
-      <TypeId>1114</TypeId>
+      <StateNumber>19368</StateNumber>
+      <TypeId>1184</TypeId>
     </column>
-    <column id="518" parent="514" name="campaignid">
-      <DasType>varchar(255)|0s</DasType>
+    <column id="518" parent="514" name="campaign_id">
+      <DasType>text|0s</DasType>
       <Position>4</Position>
-      <StateNumber>19329</StateNumber>
-      <TypeId>1043</TypeId>
+      <StateNumber>19368</StateNumber>
+      <TypeId>25</TypeId>
     </column>
-    <column id="519" parent="514" name="funnelstage">
-      <DasType>integer|0s</DasType>
+    <column id="519" parent="514" name="stage">
+      <DasType>text|0s</DasType>
       <Position>5</Position>
-      <StateNumber>19329</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>19368</StateNumber>
+      <TypeId>25</TypeId>
     </column>
-    <column id="520" parent="514" name="stagetimestamp">
-      <DasType>timestamp|0s</DasType>
+    <column id="520" parent="514" name="stage_timestamp">
+      <DasType>timestamp with time zone|0s</DasType>
       <Position>6</Position>
-      <StateNumber>19329</StateNumber>
-      <TypeId>1114</TypeId>
+      <StateNumber>19368</StateNumber>
+      <TypeId>1184</TypeId>
     </column>
-    <index id="521" parent="514" name="users_pkey">
-      <ColNames>telegramid</ColNames>
+    <column id="521" parent="514" name="type_of_repair">
+      <DasType>text|0s</DasType>
+      <Position>7</Position>
+      <StateNumber>19368</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="522" parent="514" name="class_of_repair">
+      <DasType>text|0s</DasType>
+      <Position>8</Position>
+      <StateNumber>19368</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="523" parent="514" name="type_of_area">
+      <DasType>text|0s</DasType>
+      <Position>9</Position>
+      <StateNumber>19368</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="524" parent="514" name="area_of_repair">
+      <DasType>text|0s</DasType>
+      <Position>10</Position>
+      <StateNumber>19368</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="525" parent="514" name="phone_number">
+      <DasType>text|0s</DasType>
+      <Position>11</Position>
+      <StateNumber>19368</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="526" parent="514" name="completed">
+      <DasType>boolean|0s</DasType>
+      <DefaultExpression>false</DefaultExpression>
+      <NotNull>1</NotNull>
+      <Position>12</Position>
+      <StateNumber>19368</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <index id="527" parent="514" name="users_pkey">
+      <ColNames>telegram_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>55613</ObjectId>
+      <ObjectId>55666</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>19329</StateNumber>
+      <StateNumber>19368</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="522" parent="514" name="users_pkey">
+    <key id="528" parent="514" name="users_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>55614</ObjectId>
+      <ObjectId>55667</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>19329</StateNumber>
-      <UnderlyingIndexId>55613</UnderlyingIndexId>
+      <StateNumber>19368</StateNumber>
+      <UnderlyingIndexId>55666</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

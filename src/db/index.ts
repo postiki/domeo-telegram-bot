@@ -8,15 +8,16 @@ import {
 } from 'kysely';
 import { DB } from 'kysely-codegen';
 import { Pool } from 'pg';
+import {DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER}  from "utils/config";
 
 export const db = new Kysely<DB>({
     dialect: new PostgresDialect({
         pool: new Pool({
-            user: process.env.DB_USER,
-            database: process.env.DB_NAME,
-            password: process.env.DB_PASSWORD,
-            port: Number(process.env.DB_PORT),
-            host: process.env.DB_HOST,
+            user: DB_USER,
+            database: DB_NAME,
+            password: DB_PASSWORD,
+            port: Number(DB_PORT),
+            host: DB_HOST,
             application_name: 'telegram-bot',
         }),
     }),

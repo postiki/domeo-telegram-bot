@@ -2,13 +2,17 @@
   "compilerOptions": {
     "target": "es2020",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "outDir": "./public",
     "strict": true,
-    "sourceMap": true
+    "rootDir": "src",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "src",
+    "outDir": "build",
+    "paths": {
+      "utils/*": ["utils/*"]
+    }
   },
-  "include": [
-    "src",
-    "node_modules/kysely/deno.check.d.ts"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
