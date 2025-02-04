@@ -8,25 +8,6 @@ export const UserStage = z.enum([
     'PHONE_NUMBER',
     'COMPLETED',
 ])
-
-// export enum UserNotificationDelays {
-//     FIVE_MINUTES = 300,
-//     ONE_DAY = 86400,
-//     THREE_DAYS = 259200,
-// }
-
-export enum UserNotificationDelays {
-    FIVE_MINUTES = 5,
-    ONE_DAY = 10,
-    THREE_DAYS = 15,
-}
-
-export const notificationSequence = [
-    UserNotificationDelays.FIVE_MINUTES,
-    UserNotificationDelays.ONE_DAY,
-    UserNotificationDelays.THREE_DAYS
-];
-
 export type UserStage = z.infer<typeof UserStage>
 
 export const UserModel = z.object({

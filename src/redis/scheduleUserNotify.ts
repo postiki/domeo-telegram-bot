@@ -1,9 +1,8 @@
-import {notificationSequence} from "../db/models/User";
 import {redis} from "./index";
-import {NotificationType} from "utils/notify";
+import {notificationSequences, NotificationType} from "utils/notify";
 
-export async function scheduleNotification(userId: string, stage: string,type: NotificationType, attempt: number = 0) {
-    const delay = notificationSequence[attempt];
+export async function scheduleNotification(userId: string, stage: string, type: NotificationType, attempt: number = 0) {
+    const delay = notificationSequences[type][attempt];
     if (delay === undefined) return;
 
     const key = `notification:${userId}:stage:${stage}:type:${type}:attempt:${attempt}`;

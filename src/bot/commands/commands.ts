@@ -11,7 +11,7 @@ commands.start(async ctx => {
         const existingUser = await getUser(telegramId);
 
         if (!existingUser) {
-            await createUser({telegramId: telegramId, username: username, campaignId: ctx.payload})
+            await createUser({telegramId: telegramId, username: username, campaignId: ctx.startPayload})
 
             await ctx.replyWithMarkdownV2(
                 'Уже 11 лет мы в Domeo делаем качественный ремонт квартир в Москве и СПб по фиксированным ценам\\.\n' +
